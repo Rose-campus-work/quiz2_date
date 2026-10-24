@@ -28,4 +28,9 @@ public class DateCheckerTest
         assertTrue(dateChecker.has31Days(month));
     }
 
+    @Test
+    public void testFebruaryExplicitly() {
+        assertFalse(dateChecker.has31Days(Month.February));
+    }
+
 }
