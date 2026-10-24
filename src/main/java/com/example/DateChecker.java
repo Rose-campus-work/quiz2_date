@@ -1,5 +1,4 @@
 package com.example;
-import java.util.Arrays;
 
 public class DateChecker 
 {
@@ -7,15 +6,15 @@ public class DateChecker
         January, February, March, April, May, June, July, August, September, October, November, December
     }
 
-    private DateChecker.Month[] monthThirtyOneDays = {Month.January, Month.March, Month.May, Month.July, Month.August, Month.October, Month.December};
-
     public boolean has31Days(Month month){
-        if(Arrays.asList(monthThirtyOneDays).contains(month)){
-            return true;
+        if (month == null) {
+            throw new IllegalArgumentException("Month input cannot be null");
         }
-        else{
-            return false;
-        }
+
+        return switch (month) {
+            case January, March, May, July, August, October, December -> true;
+            case April, June, September, November, February -> false;
+        };
     }
 
 }
